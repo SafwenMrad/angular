@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let emploi of listeEmplois">
+      <h3>{{ emploi.reference }}</h3>
+      <p>{{ emploi.titre }}</p>
+      <!-- <p>{{ emploi.etat }}</p> -->
+      <p>{{ emploi.entreprise }}</p>
+      <button [disabled]="!emploi.etat">Postuler</button>
+    </li>
+  </ul>
+  
