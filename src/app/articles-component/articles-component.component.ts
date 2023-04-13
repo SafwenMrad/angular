@@ -31,4 +31,9 @@ export class ArticlesComponentComponent {
     categorie:'Travail'} 
   ];
 
+  limit: number = 10;
+
+  ngOnInit() {
+    this.limit = this.listeArticles.length;
+  }
 }

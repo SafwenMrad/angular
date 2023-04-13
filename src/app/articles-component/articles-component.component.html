@@ -1,10 +1,18 @@
-<h3>{{titre}}</h3>
-<fieldset *ngFor="let article of listeArticles" style="width: 80%; margin: 0 auto;">
-    <legend>{{ article.titre }}</legend>
-    <p><strong>Contenu:</strong> {{ article.contenu }}</p>
-    <p><strong>Auteur:</strong> {{ article.auteur }}</p>
-    <p><strong>Date:</strong> {{ article.date }}</p>
-    <p><strong>Catégorie:</strong> {{ article.categorie }}</p>
-  </fieldset>
-  
-  
+<h3 style="text-align: center;">{{titre}}</h3>
+<div style="display: flex; justify-content: center;">
+  <label style="text-align: center; margin-right: 10px;">Nombre d'articles:</label>
+  <input type="text" id="limit" name="limit" [(ngModel)]="limit" style="width:15px;height:15px">
+</div>
+<fieldset style="width: 20%; margin: 0 auto;" >
+  <legend>Liste des articles</legend>
+  <div *ngFor="let article of listeArticles; let i=index" [ngStyle]="{'background-color': article.categorie === 'Education' ? 'blue' : 'transparent'}">
+    <div *ngIf="article.categorie !== 'Travail' && i < limit">
+      <p><strong>Titre:</strong> {{ article.titre }}</p>
+      <p><strong>Contenu:</strong> {{ article.contenu }}</p>
+      <p><strong>Auteur:</strong> {{ article.auteur }}</p>
+      <p><strong>Date:</strong> {{ article.date }}</p>
+      <p><strong>Catégorie:</strong> {{ article.categorie }}</p>
+      <hr>
+    </div>
+  </div>
+</fieldset>
