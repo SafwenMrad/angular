@@ -1,3 +1,11 @@
+<form (ngSubmit)="chercherEmploi()">
+    <label>Chercher un emploi par entreprise :</label>
+    <input type="text" [(ngModel)]="recherche" name="entreprise">
+    <button type="submit">Rechercher</button>
+  </form>
+  
+
+
 <ul>
     <li *ngFor="let emploi of listeEmplois">
       <h3>{{ emploi.reference }}</h3>
@@ -7,4 +15,6 @@
       <button [disabled]="!emploi.etat">Postuler</button>
     </li>
   </ul>
+  <button (click)="calculerBilan()">Bilan</button>
+
   
